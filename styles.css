@@ -75,6 +75,33 @@
         }
 
 
+
+        /* ... (existing styles) ... */
+
+.quote-container {
+    display: none;
+    margin-top: 20px;
+    margin-left: 0px;
+    margin-right: 0px;
+    /* background-color: rgba(255, 255, 255, 0.1); */
+    border-radius: 10px;
+    font-style: italic;
+}
+
+#quote-text {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+#quote-author {
+    font-size: 12px;
+    text-align: left;
+    margin-left: 0px;
+    color: var(--secondary-text-color);
+}
+
+
+
         /* Add dark mode styles */
 body.dark-mode {
     --background-color: #111111;
@@ -106,7 +133,7 @@ body.dark-mode .profile-circle {
 
         main {
             display: flex;
-            margin-top:22vh;
+            margin-top:16vh;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
