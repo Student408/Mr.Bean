@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mr. Bean</title>
     <link rel="icon" href="logo.png" type="image/png">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./assets/styles.css">
+    <link rel="stylesheet" href="./assets/project.css">
+    <link rel="stylesheet" href="./assets/anination.css">
+    <link rel="stylesheet" href="./assets/footer.css">
+    <link rel="stylesheet" href="./assets/color.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
@@ -16,9 +20,9 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#project">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
             <button class="dark-mode-toggle">🌙</button>
@@ -35,18 +39,47 @@
                 
                 <button class="cta-button">Let's Connect</button>
                 <div class="social-links">
-                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" aria-label="Behance"><i class="fab fa-behance"></i></a>
-                    <a href="#" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
+                    <a href="https://www.linkedin.com/in/ranjanshettigar/" class="fab fa-linkedin" target="_blank"></a>
+                    <a href="https://github.com/Student408" target="_blank" rel="noopener noreferrer" class="fab fa-github"></a>
+                    <a href="https://buymeacoffee.com/theloko" class="fas fa-coffee" target="_blank" rel="noopener noreferrer" aria-label="Buy Me a Coffee"></a>
                 </div>
+                
             </div>
         </main>
-        <div id="quote-container" class="quote-container" style="display: none;">
-            <p id="quote-text"></p>
-            <p id="quote-author"></p>
-        </div>
-        <footer></footer>
+        <section class="animation">
+            <ul id="downArrow">
+                <li style="--i:1"></li>
+                <li style="--i:2"></li>
+                <li style="--i:3"></li>
+            </ul>
+        </section>
+        <section class="project" id="project">
+            <h2>My <span>Projects</span></h2>
+            <div id="project-container" class="project-container">
+                <!-- Cards will be dynamically inserted here -->
+            </div>
+        </section>
+        <footer class="footer">
+            <section id="contact">
+            <h2>Let's stay connected</h2>
+            <!-- <p class="reach">If you have any questions or inquiries, feel free to reach out</p> -->
+            <div class="social-links">
+              <!-- <a href="#" class="fab fa-facebook" target="_blank"></a> -->
+              <a href="https://github.com/Student408" target="_blank" rel="noopener noreferrer" class="fab fa-github"></a>
+              <a href="https://www.linkedin.com/in/ranjanshettigar/" class="fab fa-linkedin" target="_blank"></a>
+              <a href="mailto: ranjanshettigar123@gmail.com" class="fas fa-envelope" target="_blank"></a>
+              <a href="https://www.youtube.com/@dropinxyz" target="_blank" rel="noopener noreferrer" class="fab fa-youtube"></a>
+              <a href="https://www.instagram.com/the.loko_" class="fab fa-instagram" target="_blank"></a>
+              <a href="https://open.spotify.com/artist/06DMQXuBVV0Zs2COEdjE3q" target="_blank" rel="noopener noreferrer" class="fab fa-spotify"></a>
+              <a href="https://x.com/lokotwiststudio" target="_blank" rel="noopener noreferrer" class="fab fa-twitter"></a>
+              <a href="https://linktr.ee/THE.LOKO?subscribe" target="_blank" rel="noopener noreferrer" class="fas fa-link"></a>
+            </div>
+            <p class="copy">&copy; 2024 Personal Portfolio. Made with ChatGPT & Claude.ai. All rights reserved.</p>
+          </section>
+        </footer>
     </div>
+    
     <script src="script.js"></script>
+  
 </body>
 </html>

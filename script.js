@@ -5,71 +5,75 @@ darkModeToggle.addEventListener('click', () => {
         document.documentElement.style.setProperty('--background-color', '#1a1a1a');
         document.documentElement.style.setProperty('--text-color', '#f0f8ff');
         document.documentElement.style.setProperty('--secondary-text-color', '#ccc');
+        document.documentElement.style.setProperty('--shadow-color', '#ffffff33');
         darkModeToggle.textContent = '☀️';
     } else {
         document.documentElement.style.setProperty('--background-color', '#f0f8ff');
         document.documentElement.style.setProperty('--text-color', '#333');
         document.documentElement.style.setProperty('--secondary-text-color', '#666');
+        document.documentElement.style.setProperty('--shadow-color', '#00000033');
         darkModeToggle.textContent = '🌙';
     }
 });
 
-// Typing animation for main text
-const typingText = document.getElementById('typing-text');
-const mainText = "Mr. Bean, portrayed by Rowan Atkinson, is a character who has brought joy and laughter to millions around the world. This portfolio page is dedicated to celebrating Mr. Bean's legacy through a collection of his best moments, character biography, and interactive elements that reflect his unique style of comedy.";
-let mainIndex = 0;
+document.getElementById('downArrow').addEventListener('click', function() {
+    window.scrollBy({
+        top: window.innerHeight,
+        behavior: 'smooth'
+    });
+});
 
-function typeMainText() {
-    if (mainIndex < mainText.length) {
-        typingText.innerHTML += mainText.charAt(mainIndex);
-        mainIndex++;
-        setTimeout(typeMainText, 3);//1sec
-    } else {
-        // Main text typing is complete, start the quote cycle
-        fetchAndTypeQuote();
+// Project data
+const projects = [
+    {
+        image: "./img/town.jpg",
+        title: "Mr. Bean Goes to Town",
+        description: "Mr Bean purchases a new TV, only to experience a spot of reception trouble. He then takes a stroll in the park to try out his new camera, which is promptly stolen.",
+        githubLink: "https://github.com/Student408",
+        demoLink: "https://www.imdb.com/title/tt0651847/"
+    },
+    {
+        image: "./img/trouble.jpg",
+        title: "The Trouble with Mr. Bean",
+        description: "Mr Bean, late for his dental appointment, tries to get dressed and clean his teeth whilst on the way.",
+        githubLink: "https://github.com/Student408",
+        demoLink: "https://www.imdb.com/title/tt0651854/"
+    },
+    {
+        image: "./img/rides.jpg",
+        title: "Mr. Bean Rides Again",
+        description: "At the bus stop, Mr Bean tries his best to revive a heart attack victim before using an ambulance to jump-start his own mini-car. ",
+        githubLink: "https://github.com/Student408",
+        demoLink: "https://www.imdb.com/title/tt0651848/"
     }
-}
-// Fetch and type random quote
-let quoteText = '';
-let quoteAuthor = '';
-let quoteIndex = 0;
+];
 
-function fetchAndTypeQuote() {
-    fetch('https://api.quotable.io/random')
-        .then(response => response.json())
-        .then(data => {
-            quoteText = data.content;
-            quoteAuthor = data.author;
-            quoteIndex = 0;
-            document.getElementById('quote-text').textContent = '';
-            document.getElementById('quote-author').textContent = '';
-            document.getElementById('quote-container').style.display = 'block';
-            typeQuote();
-        })
-        .catch(error => {
-            console.error('Error fetching quote:', error);
-        });
-}
-
-function typeQuote() {
-    const quoteElement = document.getElementById('quote-text');
-    const authorElement = document.getElementById('quote-author');
-    
-    if (quoteIndex < quoteText.length) {
-        quoteElement.textContent += quoteText.charAt(quoteIndex);
-        quoteIndex++;
-        setTimeout(typeQuote, 30);
-    } else if (quoteIndex === quoteText.length) {
-        authorElement.textContent = `- ${quoteAuthor}`;
-        quoteIndex++;
-        setTimeout(typeQuote, 30);
-    } else {
-        // Quote typing is complete, wait for 6 seconds before fetching a new quote
-        setTimeout(fetchAndTypeQuote, 6000);
-    }
+// Function to create a card
+function createCard(project) {
+    return `
+        <div class="card">
+            <div class="card-image">
+                <img src="${project.image}" alt="${project.title}">
+            </div>
+            <div class="card-content">
+                <div>
+                    <h3 class="card-title">${project.title}</h3>
+                    <p class="card-text">${project.description}</p>
+                </div>
+                <div class="card-buttons">
+                    <a href="${project.githubLink}" class="btn btn-github" target="_blank">GitHub</a>
+                    <a href="${project.demoLink}" class="btn btn-demo" target="_blank">DEMO</a>
+                </div>
+            </div>
+        </div>
+    `;
 }
 
-// Start the quote animation after a 2-second delay when the page loads
-window.onload = function() {
-    setTimeout(fetchAndTypeQuote, 600);//300ms
-};
+// Function to render all cards
+function renderCards() {
+    const container = document.getElementById('project-container');
+    container.innerHTML = projects.map(project => createCard(project)).join('');
+}
+
+// Render cards when the page loads
+window.onload = renderCards;
