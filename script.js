@@ -1,18 +1,25 @@
-const darkModeToggle = document.querySelector('.dark-mode-toggle');
-darkModeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-    if (document.body.classList.contains('dark-mode')) {
-        document.documentElement.style.setProperty('--background-color', '#1a1a1a');
-        document.documentElement.style.setProperty('--text-color', '#f0f8ff');
-        document.documentElement.style.setProperty('--secondary-text-color', '#ccc');
-        document.documentElement.style.setProperty('--shadow-color', '#ffffff33');
-        darkModeToggle.textContent = '☀️';
+document.addEventListener('DOMContentLoaded', () => {
+    const darkModeToggle = document.querySelector('.dark-mode-toggle');
+    
+    if (darkModeToggle) {
+        darkModeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            if (document.body.classList.contains('dark-mode')) {
+                document.documentElement.style.setProperty('--background-color', '#1a1a1a');
+                document.documentElement.style.setProperty('--text-color', '#f0f8ff');
+                document.documentElement.style.setProperty('--secondary-text-color', '#ccc');
+                document.documentElement.style.setProperty('--shadow-color', '#ffffff33');
+                darkModeToggle.textContent = '☀️';
+            } else {
+                document.documentElement.style.setProperty('--background-color', '#f0f8ff');
+                document.documentElement.style.setProperty('--text-color', '#333');
+                document.documentElement.style.setProperty('--secondary-text-color', '#666');
+                document.documentElement.style.setProperty('--shadow-color', '#00000033');
+                darkModeToggle.textContent = '🌙';
+            }
+        });
     } else {
-        document.documentElement.style.setProperty('--background-color', '#f0f8ff');
-        document.documentElement.style.setProperty('--text-color', '#333');
-        document.documentElement.style.setProperty('--secondary-text-color', '#666');
-        document.documentElement.style.setProperty('--shadow-color', '#00000033');
-        darkModeToggle.textContent = '🌙';
+        console.error("Dark mode toggle button not found.");
     }
 });
 
