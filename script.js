@@ -63,10 +63,10 @@ function createCard(project) {
                 <img src="${project.image}" alt="${project.title}">
             </div>
             <div class="card-content">
-                <div>
                     <h3 class="card-title">${project.title}</h3>
+                    <div class="card-text-content">
                     <p class="card-text">${project.description}</p>
-                </div>
+                    </div>
                 <div class="card-buttons">
                     <a href="${project.githubLink}" class="btn btn-github" target="_blank">GitHub</a>
                     <a href="${project.demoLink}" class="btn btn-demo" target="_blank">DEMO</a>
