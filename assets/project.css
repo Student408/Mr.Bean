@@ -57,6 +57,20 @@ h2 span{
     padding: 20px;
 }
 
+.card-content {
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 200px);
+}
+.card-text-content {
+    flex-grow: 1;
+    overflow: auto;
+}
+.card-text {
+    margin-bottom: 20px;
+}
+
+
 .card-title {
     font-size: 18px;
     font-weight: bold;
