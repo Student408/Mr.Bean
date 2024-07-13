@@ -5,18 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mr. Bean</title>
     <link rel="icon" href="logo.png" type="image/png">
-    <link rel="stylesheet" href="./assets/styles.css">
-    <link rel="stylesheet" href="./assets/project.css">
-    <link rel="stylesheet" href="./assets/anination.css">
-    <link rel="stylesheet" href="./assets/footer.css">
-    <link rel="stylesheet" href="./assets/color.css">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="./assets/css/project.css">
+    <link rel="stylesheet" href="./assets/css/anination.css">
+    <link rel="stylesheet" href="./assets/css/footer.css">
+    <link rel="stylesheet" href="./assets/css/color.css">
+    <link rel="stylesheet" href="./assets/css/test.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     <div class="container">
         <header>
             <div class="logo">
-                <img src="logo.png" alt="Logo">
+                <img src="./assets/img/logo.png" alt="Logo">
             </div>
             <nav>
                 <ul>
@@ -30,7 +31,7 @@
         <main>
             <div class="profile-image">
                 <div class="profile-circle">
-                    <img src="mrbean.png" alt="Mr. Bean">
+                    <img src="./assets/img/mrbean.png" alt="Mr. Bean">
                 </div>
             </div>
             <div class="content">
@@ -59,9 +60,26 @@
                 <!-- Cards will be dynamically inserted here -->
             </div>
         </section>
+
+        <div class="contact-form">
+            <h2>Let's stay connected</h2>
+            <form id="contactForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+    
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+    
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+    
+                <button class="btn btn-submit" type="submit">Send Message</button>
+            </form>
+        </div>
+
         <footer class="footer">
             <section id="contact">
-            <h2>Let's stay connected</h2>
+            <!-- <h2>Let's stay connected</h2> -->
             <!-- <p class="reach">If you have any questions or inquiries, feel free to reach out</p> -->
             <div class="social-links">
               <!-- <a href="#" class="fab fa-facebook" target="_blank"></a> -->
@@ -78,8 +96,7 @@
           </section>
         </footer>
     </div>
-    
-    <script src="script.js"></script>
-  
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="module" src="./assets/js/script.js"></script>
 </body>
 </html>
