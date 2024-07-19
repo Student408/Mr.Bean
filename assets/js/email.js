@@ -1,3 +1,8 @@
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    sendEmail();
+});
+
 function sendEmail() {
     const formData = {
         name: document.getElementById('name').value,
@@ -14,6 +19,7 @@ function sendEmail() {
     .then(response => response.text())
     .then(data => {
         alert(data);
+        document.getElementById('contactForm').reset(); // Clear the form
     })
     .catch(error => {
         alert('Error: ' + error);
